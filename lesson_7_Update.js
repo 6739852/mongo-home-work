@@ -6,7 +6,7 @@ db.books.updateMany({title:/^b/i},{$unset:{publishedDate:true}})
 //3
 db.books.update({status:PUBLISH, publishedDate:null},{$currentDate:{updateDate:true}})
 //4
-db.books.updateMany({},{$set:{price:90}})
+db.books.updateMany({},{ $set: { price: { $literal: Math.floor(Math.random() * 91) + 10 } } })
 //5
 db.books.updateMany({category:/Java/i},{$mul:{price:1.1}})
 //6
